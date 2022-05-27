@@ -24,7 +24,7 @@
     >
     >**lainnya**: default
 
-    <img src="images/3.png" width=400>
+    <img src="images/3.png" width=400>\
     <img src="images/4.png" width=400>
 <br/>
 
@@ -35,7 +35,9 @@
     ```
 
 ## Konfigurasi Firewall *Allow HTTP Check*
+
 1. Pada halaman Firewall, klik tombol **CREATE FIREWALL RULE**
+
     <img src="images/2.png" width=400>
 <br/>
 
@@ -49,7 +51,7 @@
     >- Specified protocols and ports, centang **TCP** tanpa mengisi port
     >**lainnya**: default
 
-    <img src="images/5.png" width=400>
+    <img src="images/5.png" width=400>\
     <img src="images/6.png" width=400>
 <br/>
 
@@ -64,18 +66,22 @@
 >Untuk membuat load balancer, kita perlu menggunakan Managed Instance Group. Untuk membuatnya, kita memerlukan Instance Template untuk Autoscaling.
 
 1. Masuk Navigation menu pilih **Compute Engine** > **Instance Template** \
+
     <img src="images/7.png" width=200>
 <br/>
 
 2. Klik **CREATE INSTANCE TEMPLATE**
+
     <img src="images/8.png" width=400>
 <br/>
 
 3. Beri nama Instance
-    <img src="images/9.png" width=400>
+ 
+   <img src="images/9.png" width=400>
 <br/>
 
 4. Karena hanya menampilkan web sederhana, saya sesuaikan **Machine Configuration** dengan spec yang lebih rendah
+
     <img src="images/10.png" width=400>
 <br/>
 
