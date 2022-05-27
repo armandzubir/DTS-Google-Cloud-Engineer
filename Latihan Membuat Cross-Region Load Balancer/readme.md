@@ -165,8 +165,9 @@ Selanjutnya kita akan buat instance group yang bersumber dari instance template 
 <br/>
 
 7. Browse External IP VM tersebut untuk memastikan bahwa web server sudah berjalan
-![instance vm list](images/23.png)
 
+    <img src="images/23.png" width=400>
+<br/>
 8. Jika tampilan seperti ini, maka web server sudah berjalan sesuai template yang sudah dibuat
 
     <img src="images/24.png" width=400>
@@ -180,10 +181,12 @@ Selanjutnya kita akan buat instance group yang bersumber dari instance template 
 <br/>
 
 10. Saat ini sudah ada 2 instance group
+
     <img src="images/28.png" width=400>
 <br/>
 
 11. Dan kita bisa lakukan pengecekan kembali di menu **VM INSTANCE** untuk memastikan web server pada europe sudah bisa diakses
+
     <img src="images/29.png" width=400>
 <br/>
 
@@ -193,26 +196,32 @@ Saat ini kita sudah berhasil membuat 2 instance group yang akan kita gunakan seb
 ## Konfigurasi HTTP Load Balancer
 
 1. Buka halaman load balancing melalui **Navigation Menu** -> **Network services** -> **Load balancing**.
+
     <img src="images/30.png" width=200>
 <br/>
 
 2. Klik **Create Load Balancer** untuk membuat.
+
     <img src="images/31.png" width=400>
 <br/>
 
-3. Pilih **Start configuration** pada HTTP(S) Load Balancing. 
+3. Pilih **Start configuration** pada HTTP(S) Load Balancing.
+
     <img src="images/32.png" width=400>
 <br/>
 
 4. Biarkan opsi menggunakan default, dan klik **Continue**
+
     <img src="images/33.png" width=400>
 <br/>
 
 5. Beri nama Load Balancer, kemudian pada bagian **Backend configuration**, klik kolom **Backend services & backend buckets**, lalu pilih **Create a Backend Service**
+
     <img src="images/34.png" width=400>
 <br/>
 
 6. Beri nama backend service, dan pilih backend type Instance group dengan protocol http
+
     <img src="images/35.png" width=400>
 <br/>
 
@@ -222,6 +231,7 @@ Saat ini kita sudah berhasil membuat 2 instance group yang akan kita gunakan seb
  **Balancing mode** : Rate \
  **Maximum RPS** : 50 \
  **Lainnya** : default
+
     <img src="images/36.png" width=400>
 <br/>
 
@@ -229,49 +239,60 @@ Saat ini kita sudah berhasil membuat 2 instance group yang akan kita gunakan seb
  **Instance group** : europe-west1-group \
  **Port numbers** : 80 \
  **lainnya** : default
+
     <img src="images/37.png" width=400>
 <br/>
 
 9. Pada kolom **Health check**, tekan **Create a Health Check**
+
     <img src="images/38.png" width=400>
 <br/>
 
 10. Beri nama, ubah protocol menjadi **HTTP**, dan klik **Save**
+
     <img src="images/39.png" width=400>
 <br/>
 
 11. Kemudian klik **Create** untuk menyimpan, dan akan muncul tabel list **Backend services**
+
     <img src="images/40.png" width=400>
 <br/>
 
 12. Pilih **Frontend configuration**. Pilih IPv4 pada IP version, pilih Ephemeral pada IP address, dan pilih 80 pada Port. Lalu, klik Done.
-    <img src="images/41.png" width=400>
+
+    <img src="images/41.png" width=400>\
     <img src="images/42.png" width=400>
 <br/>
 
 13. Tambahkan lagi Frontend configuration dengan klik Add Frontend IP and Port. Pilih IPv6 pada IP version, pilih Ephemeral pada IP address, dan pilih 80 pada Port. Lalu, klik Done.
-    <img src="images/43.png" width=400>
+
+    <img src="images/43.png" width=400>\
     <img src="images/44.png" width=400>
 <br/>
 
 14. Maka akan muncul 2 list Frontend Configuration
+
     <img src="images/45.png" width=400>
 <br/>
 
 15. Review and finalize untuk mengulas kembali konfigurasi dari load balancer yang akan kita buat. Jika sudah benar, klik tombol Create
-    <img src="images/46.png" width=400>
+
+    <img src="images/46.png" width=400>\
     <img src="images/47.png" width=400>
 <br/>
 
 16. Beberapa menit kemudian, Load Balancer sudah siap digunakan
+
     <img src="images/48.png" width=400>
 <br/>
 
 17. Copy address pada kolom Address di tab **FrontEnds**. dan buka pada browser 
+
     <img src="images/49.png" width=400>
 <br/>
 
 18. Jika sudah benar, akan muncul web yang sudah dibuat sebelumnya
+
     <img src="images/50.png" width=400>
 <br/>
 
@@ -284,6 +305,7 @@ Langkah selanjutnya, kita perlu melakukan stress test untuk menguji load balance
     ```c
     sudo apt-get install siege -y
     ```
+
     <img src="images/51.png" width=400>
 <br/>
 
@@ -291,6 +313,7 @@ Langkah selanjutnya, kita perlu melakukan stress test untuk menguji load balance
     ```c
     siege -c 250 http://load_balancer_ip
     ```
+
     <img src="images/52.png" width=400>
 <br/>
 
@@ -300,17 +323,19 @@ Langkah selanjutnya, kita perlu melakukan stress test untuk menguji load balance
     >The server is now under siege...
     
 
-4. Buka halaman **Load balancing**, lalu klik pada nama load balancer Anda. 
+4. Buka halaman **Load balancing**, lalu klik pada nama load balancer Anda.
+
     <img src="images/53.png" width=400>
 <br/>
 
 5. Buka tab **Monitoring**, Anda akan melihat alur dari traffic yang dikirim dari Siege. Karena kita telah mengatur backend di asia-southeast2 hanya bisa menerima 50 RPS, traffic pun akan dialihkan ke europe-west1 meskipun VM tempat kita mengakses berada di Asia.
+
     <img src="images/54.png" width=400>
 <br/>
 
 6. Jika kita buka browser lagi, maka kita akan diarahkan secara otomatis ke server Asia maupun ke Eropa sesuai dengan Load Balancer yang sudah kita buat sebelumnya.
 
-    <img src="images/55.png" width=400>
+    <img src="images/55.png" width=400>\
     <img src="images/56.png" width=400>
 <br/>
 
