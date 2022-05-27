@@ -3,10 +3,14 @@
 
 ## Konfigurasi Firewall *Allow HTTP*
 1. Dari navigasi menu, pilih VPC Network > Firewall
-![menu firewall](images/1.png)
+
+    <img src="images/1.png" width=200>
+<br/>
 
 2. Pada halaman Firewall, klik tombol **CREATE FIREWALL RULE**
-![create firewall rule](images/2.png)
+
+    <img src="images/2.png" width=200>
+<br/>
 
 3. Isi form sesuai dengan requirement:
     >**Name**: dicoding-allow-http\
@@ -251,5 +255,4 @@ Langkah selanjutnya, kita perlu melakukan stress test untuk menguji load balance
     ![monitoring lb](images/55.png)
     ![monitoring lb](images/56.png)
 
-
-# Sekian Terima Kasih
+# <center>Sekian Terima Kasih</center>
