@@ -246,9 +246,10 @@ Langkah selanjutnya, kita perlu melakukan stress test untuk menguji load balance
 5. Buka tab **Monitoring**, Anda akan melihat alur dari traffic yang dikirim dari Siege. Karena kita telah mengatur backend di asia-southeast2 hanya bisa menerima 50 RPS, traffic pun akan dialihkan ke europe-west1 meskipun VM tempat kita mengakses berada di Asia.
 ![monitoring lb](images/54.png)
 
-6. Jika kita buka browser lagi, maka kita akan diarahkan secara otomatis ke server Asia maupun ke Eropa sesuai dengan Load Balancer yang sudah kita buat sebelumnya
-![monitoring lb](images/55.png)
-![monitoring lb](images/56.png)
+6. Jika kita buka browser lagi, maka kita akan diarahkan secara otomatis ke server Asia maupun ke Eropa sesuai dengan Load Balancer yang sudah kita buat sebelumnya.
+
+    ![monitoring lb](images/55.png)
+    ![monitoring lb](images/56.png)
 
 
 # Sekian Terima Kasih
